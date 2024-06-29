@@ -1,6 +1,7 @@
 package com.gustavo.admin.catalogo.domain.category;
 
 import com.gustavo.admin.catalogo.domain.entities.AggregateRoot;
+import com.gustavo.admin.catalogo.domain.validation.ValidationHandler;
 
 import java.time.Instant;
 
@@ -43,8 +44,14 @@ public class Category  extends AggregateRoot<CategoryID> {
 
       final var id = CategoryID.unique();
       final Instant now = Instant.now();
-      return new Category(id, name, description, active, now, now, null);
+      final var deletedAt =  active ? null : now;
+      return new Category(id, name, description, active, now, now, deletedAt);
 
+   }
+
+   @Override
+   public void validate(ValidationHandler handler) {
+      new CategoryValidator(this, handler).validate();
    }
 
    public CategoryID getId() {

@@ -1,10 +1,11 @@
 package com.gustavo.admin.catalogo.domain.entities;
 
+import com.gustavo.admin.catalogo.domain.validation.ValidationHandler;
 import com.gustavo.admin.catalogo.domain.valueobject.Identifier;
 
 import java.util.Objects;
 
-public class Entity<ID extends Identifier> {
+public  abstract   class Entity<ID extends Identifier> {
     protected final ID id;
 
     public ID getId() {
@@ -15,6 +16,9 @@ public class Entity<ID extends Identifier> {
         Objects.requireNonNull(id, "id should not be null");
         this.id = id;
     }
+
+
+        public abstract   void validate(ValidationHandler handler);
 
     @Override
     public boolean equals(final Object o) {
