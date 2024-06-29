@@ -1,10 +1,12 @@
 package com.gustavo.admin.catalogo.domain.category;
 
-import java.time.Instant;
-import java.util.UUID;
+import com.gustavo.admin.catalogo.domain.entities.AggregateRoot;
 
-public class Category {
-   private final String id;
+import java.time.Instant;
+
+
+public class Category  extends AggregateRoot<CategoryID> {
+
    private final String name;
 
    private final String description;
@@ -17,14 +19,14 @@ public class Category {
    private final Instant deletedAt;
 
    private Category(
-           final String id,
+           final CategoryID id,
            final   String name,
            final    String description,
            final     boolean active,
            final     Instant createdAt,
            final      Instant updatedAt,
            final     Instant deletedAt) {
-      this.id = id;
+     super(id);
       this.name = name;
       this.description = description;
       this.active = active;
@@ -39,13 +41,13 @@ public class Category {
                                         final    String description,
                                         final     boolean active){
 
-      final String id = UUID.randomUUID().toString();
+      final var id = CategoryID.unique();
       final Instant now = Instant.now();
       return new Category(id, name, description, active, now, now, null);
 
    }
 
-   public String getId() {
+   public CategoryID getId() {
       return id;
    }
 
