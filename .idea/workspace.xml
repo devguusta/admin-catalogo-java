@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3253efe7-a781-45cb-8216-364e79fe7de3" name="Changes" comment="create category id and implement category entity">
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/gustavo/admin/catalogo/application/NullaryUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/gustavo/admin/catalogo/application/UnitUseCase.java" afterDir="false" />
+    <list default="true" id="3253efe7-a781-45cb-8216-364e79fe7de3" name="Changes" comment="create usecase interfaces">
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/gustavo/admin/catalogo/application/category/create/CreateCategoryCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/gustavo/admin/catalogo/application/category/create/CreateCategoryOutput.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/gustavo/admin/catalogo/application/category/create/CreateCategoryUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/gustavo/admin/catalogo/application/category/create/DefaultCreateCategoryUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/test/java/com/gustavo/admin/catalogo/application/category/create/CreateCategoryUseCaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/gustavo/admin/catalogo/application/UseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/gustavo/admin/catalogo/application/UseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/application/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/test/java/com/gustavo/admin/catalogo/application/UseCaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/test/java/com/gustavo/admin/catalogo/application/UseCaseTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +47,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="package-info" />
         <option value="Record" />
         <option value="Class" />
       </list>
@@ -114,7 +119,7 @@
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
-  <component name="RunManager" selected="Gradle.CategoryTest.giveAValidCategoryInactive_whenCallUpdateWithInvalidParams_thenThrowException">
+  <component name="RunManager" selected="Gradle.CreateCategoryUseCaseTest.giveAValidCommand_whenCallsCreateCategory_shouldReturnCategory">
     <configuration name="CategoryTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -129,30 +134,6 @@
             <option value=":domain:test" />
             <option value="--tests" />
             <option value="&quot;com.gustavo.admin.catalogo.domain.category.CategoryTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="CategoryTest.giveAValidActiveCategory_whenCallDeactivate_thenReturnCategoryInactive" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":domain:test" />
-            <option value="--tests" />
-            <option value="&quot;com.gustavo.admin.catalogo.domain.category.CategoryTest.giveAValidActiveCategory_whenCallDeactivate_thenReturnCategoryInactive&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -235,13 +216,37 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="CreateCategoryUseCaseTest.giveAValidCommand_whenCallsCreateCategory_shouldReturnCategory" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":application:test" />
+            <option value="--tests" />
+            <option value="&quot;com.gustavo.admin.catalogo.application.category.create.CreateCategoryUseCaseTest.giveAValidCommand_whenCallsCreateCategory_shouldReturnCategory&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.CreateCategoryUseCaseTest.giveAValidCommand_whenCallsCreateCategory_shouldReturnCategory" />
         <item itemvalue="Gradle.CategoryTest.giveAValidCategoryInactive_whenCallUpdateWithInvalidParams_thenThrowException" />
         <item itemvalue="Gradle.CategoryTest.giveAValidCategoryInactive_whenCallUpdateWithActive_thenReturnActivateCategoryUpdated" />
         <item itemvalue="Gradle.CategoryTest.giveAValidCategory_whenCallUpdate_thenReturnCategoryUpdated" />
         <item itemvalue="Gradle.CategoryTest" />
-        <item itemvalue="Gradle.CategoryTest.giveAValidActiveCategory_whenCallDeactivate_thenReturnCategoryInactive" />
       </list>
     </recent_temporary>
   </component>
@@ -278,12 +283,21 @@
       <option name="project" value="LOCAL" />
       <updated>1719874680197</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="create usecase interfaces">
+      <option name="closed" value="true" />
+      <created>1719876000229</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1719876000229</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="create basic project" />
     <MESSAGE value="create category id and implement category entity" />
-    <option name="LAST_COMMIT_MESSAGE" value="create category id and implement category entity" />
+    <MESSAGE value="create usecase interfaces" />
+    <option name="LAST_COMMIT_MESSAGE" value="create usecase interfaces" />
   </component>
 </project>
