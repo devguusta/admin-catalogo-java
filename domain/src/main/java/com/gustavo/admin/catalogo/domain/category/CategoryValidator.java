@@ -6,7 +6,9 @@ import com.gustavo.admin.catalogo.domain.validation.Validator;
 
 public class CategoryValidator extends Validator {
 
-        private final Category category;
+    public static final int NAME_MIN_LENGTH = 3;
+    public static final int NAME_MAX_LENGTH = 255;
+    private final Category category;
 
         public CategoryValidator(Category  category, final ValidationHandler handler) {
             super(handler);
@@ -31,7 +33,8 @@ public class CategoryValidator extends Validator {
             this.validatorHandler().append(new Error("'name' should not be empty"));
         }
         final int length = name.trim().length();
-        if (length < 3 || length > 255) {
+        if (length <
+                NAME_MIN_LENGTH || length > NAME_MAX_LENGTH) {
             this.validatorHandler().append(new Error("'name' must be between 3 and 255 characters"));
         }
     }

@@ -5,17 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3253efe7-a781-45cb-8216-364e79fe7de3" name="Changes" comment="create category id and implement category entity">
-      <change afterPath="$PROJECT_DIR$/domain/src/main/java/com/gustavo/admin/catalogo/domain/category/CategoryValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/src/main/java/com/gustavo/admin/catalogo/domain/exceptions/DomainException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/src/main/java/com/gustavo/admin/catalogo/domain/exceptions/NoStackTraceException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/src/main/java/com/gustavo/admin/catalogo/domain/validation/Error.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/src/main/java/com/gustavo/admin/catalogo/domain/validation/ValidationHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/src/main/java/com/gustavo/admin/catalogo/domain/validation/Validator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/src/main/java/com/gustavo/admin/catalogo/domain/validation/handler/ThrowsValidationHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/src/main/java/com/gustavo/admin/catalogo/domain/category/CategoryGateway.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/src/main/java/com/gustavo/admin/catalogo/domain/category/CategorySearchQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/src/main/java/com/gustavo/admin/catalogo/domain/pagination/Pagination.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/gustavo/admin/catalogo/domain/category/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/gustavo/admin/catalogo/domain/category/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/gustavo/admin/catalogo/domain/entities/AggregateRoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/gustavo/admin/catalogo/domain/entities/AggregateRoot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/gustavo/admin/catalogo/domain/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/gustavo/admin/catalogo/domain/entities/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/gustavo/admin/catalogo/domain/category/CategoryValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/gustavo/admin/catalogo/domain/category/CategoryValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/src/test/java/com/gustavo/admin/catalogo/domain/category/CategoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/test/java/com/gustavo/admin/catalogo/domain/category/CategoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +26,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -48,8 +46,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Record" />
         <option value="Class" />
+        <option value="Record" />
       </list>
     </option>
   </component>
@@ -77,6 +75,12 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.CategoryTest.executor": "Run",
+    "Gradle.CategoryTest.giveAValidActiveCategory_whenCallDeactivate_thenReturnCategoryInactive.executor": "Run",
+    "Gradle.CategoryTest.giveAValidCategoryInactive_whenCallUpdateWithActive_thenReturnActivateCategoryUpdated.executor": "Run",
+    "Gradle.CategoryTest.giveAValidCategoryInactive_whenCallUpdateWithInvalidParams_thenThrowException.executor": "Run",
+    "Gradle.CategoryTest.giveAValidCategory_whenCallDeactivate_thenReturnCategoryInactive.executor": "Run",
+    "Gradle.CategoryTest.giveAValidCategory_whenCallUpdate_thenReturnCategoryUpdated.executor": "Run",
+    "Gradle.CategoryTest.giveAValidInactiveCategory_whenCallActivate_thenReturnCategoryActive.executor": "Run",
     "Gradle.CategoryTest.giveAValidParams_whenCallNewCategory_thenInstatiateACategory.executor": "Run",
     "Gradle.CategoryTest.giveAnEmptyName_whenCallNewCategory_thenShouldReturnException.executor": "Run",
     "Gradle.CategoryTest.giveAnInvalidNullName_whenCallNewCategory_thenShouldReturnException.executor": "Run",
@@ -88,7 +92,7 @@
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
-  <component name="RunManager" selected="Gradle.CategoryTest">
+  <component name="RunManager" selected="Gradle.CategoryTest.giveAValidCategoryInactive_whenCallUpdateWithInvalidParams_thenThrowException">
     <configuration name="CategoryTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -113,7 +117,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="CategoryTest.giveAValidParams_whenCallNewCategory_thenInstatiateACategory" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CategoryTest.giveAValidActiveCategory_whenCallDeactivate_thenReturnCategoryInactive" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -126,7 +130,7 @@
           <list>
             <option value=":domain:test" />
             <option value="--tests" />
-            <option value="&quot;com.gustavo.admin.catalogo.domain.category.CategoryTest.giveAValidParams_whenCallNewCategory_thenInstatiateACategory&quot;" />
+            <option value="&quot;com.gustavo.admin.catalogo.domain.category.CategoryTest.giveAValidActiveCategory_whenCallDeactivate_thenReturnCategoryInactive&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -137,7 +141,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="CategoryTest.giveAnEmptyName_whenCallNewCategory_thenShouldReturnException" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CategoryTest.giveAValidCategoryInactive_whenCallUpdateWithActive_thenReturnActivateCategoryUpdated" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -150,7 +154,7 @@
           <list>
             <option value=":domain:test" />
             <option value="--tests" />
-            <option value="&quot;com.gustavo.admin.catalogo.domain.category.CategoryTest.giveAnEmptyName_whenCallNewCategory_thenShouldReturnException&quot;" />
+            <option value="&quot;com.gustavo.admin.catalogo.domain.category.CategoryTest.giveAValidCategoryInactive_whenCallUpdateWithActive_thenReturnActivateCategoryUpdated&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -161,7 +165,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="CategoryTest.giveAnInvalidNullName_whenCallNewCategory_thenShouldReturnException" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CategoryTest.giveAValidCategoryInactive_whenCallUpdateWithInvalidParams_thenThrowException" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -174,7 +178,7 @@
           <list>
             <option value=":domain:test" />
             <option value="--tests" />
-            <option value="&quot;com.gustavo.admin.catalogo.domain.category.CategoryTest.giveAnInvalidNullName_whenCallNewCategory_thenShouldReturnException&quot;" />
+            <option value="&quot;com.gustavo.admin.catalogo.domain.category.CategoryTest.giveAValidCategoryInactive_whenCallUpdateWithInvalidParams_thenThrowException&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -185,7 +189,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="MainTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CategoryTest.giveAValidCategory_whenCallUpdate_thenReturnCategoryUpdated" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -196,9 +200,9 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value=":infrastructure:test" />
+            <option value=":domain:test" />
             <option value="--tests" />
-            <option value="&quot;com.gustavo.admin.catalogo.infrastructure.MainTest&quot;" />
+            <option value="&quot;com.gustavo.admin.catalogo.domain.category.CategoryTest.giveAValidCategory_whenCallUpdate_thenReturnCategoryUpdated&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -211,11 +215,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.CategoryTest.giveAValidCategoryInactive_whenCallUpdateWithInvalidParams_thenThrowException" />
+        <item itemvalue="Gradle.CategoryTest.giveAValidCategoryInactive_whenCallUpdateWithActive_thenReturnActivateCategoryUpdated" />
+        <item itemvalue="Gradle.CategoryTest.giveAValidCategory_whenCallUpdate_thenReturnCategoryUpdated" />
         <item itemvalue="Gradle.CategoryTest" />
-        <item itemvalue="Gradle.CategoryTest.giveAnEmptyName_whenCallNewCategory_thenShouldReturnException" />
-        <item itemvalue="Gradle.CategoryTest.giveAValidParams_whenCallNewCategory_thenInstatiateACategory" />
-        <item itemvalue="Gradle.CategoryTest.giveAnInvalidNullName_whenCallNewCategory_thenShouldReturnException" />
-        <item itemvalue="Gradle.MainTest" />
+        <item itemvalue="Gradle.CategoryTest.giveAValidActiveCategory_whenCallDeactivate_thenReturnCategoryInactive" />
       </list>
     </recent_temporary>
   </component>

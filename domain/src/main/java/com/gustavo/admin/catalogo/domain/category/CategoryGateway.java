@@ -1,0 +1,13 @@
+package com.gustavo.admin.catalogo.domain.category;
+
+import com.gustavo.admin.catalogo.domain.pagination.Pagination;
+
+import java.util.Optional;
+
+public interface CategoryGateway {
+    Category create(Category category);
+    Category update(Category category);
+    void deleteById(CategoryID id);
+    Optional<Category> findById(CategoryID id);
+    Pagination<Category> findAll(CategorySearchQuery query);
+}

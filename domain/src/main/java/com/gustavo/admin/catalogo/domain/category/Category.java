@@ -8,16 +8,16 @@ import java.time.Instant;
 
 public class Category  extends AggregateRoot<CategoryID> {
 
-   private final String name;
+   private  String name;
 
-   private final String description;
-   private final boolean active;
+   private    String description;
+   private  boolean active;
 
    private final Instant createdAt;
 
-   private final Instant updatedAt;
+   private  Instant updatedAt;
 
-   private final Instant deletedAt;
+   private  Instant deletedAt;
 
    private Category(
            final CategoryID id,
@@ -49,10 +49,41 @@ public class Category  extends AggregateRoot<CategoryID> {
 
    }
 
+   public Category deactivate(){
+      if(getDeletedAt() == null){
+         this.deletedAt = Instant.now();
+      }
+      this.active = false;
+      this.updatedAt = Instant.now();
+        return this;
+   }
+
+   public Category activate(){
+      this.active = true;
+      this.deletedAt = null;
+      this.updatedAt = Instant.now();
+        return this;
+
+   }
+
    @Override
    public void validate(ValidationHandler handler) {
       new CategoryValidator(this, handler).validate();
    }
+   public Category update(final String name, final String description, final boolean active){
+
+      if(active){
+         activate();
+      } else {
+            deactivate();
+      }
+      this.name = name;
+      this.description = description;
+
+      this.updatedAt = Instant.now();
+      return this;
+   }
+
 
    public CategoryID getId() {
       return id;
@@ -81,4 +112,7 @@ public class Category  extends AggregateRoot<CategoryID> {
    public Instant getDeletedAt() {
       return deletedAt;
    }
+
+
+
 }
