@@ -21,12 +21,16 @@ public class CategoryID extends Identifier {
 
 
 
-    public static CategoryID fromString(String value){
-        return new CategoryID(value);
+    public static CategoryID from(final String anId) {
+        return new CategoryID(anId);
     }
 
     public static CategoryID from(final UUID id){
         return new CategoryID(id.toString().toLowerCase());
+    }
+
+    public String getValue() {
+        return value;
     }
 
     @Override
