@@ -4,15 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3253efe7-a781-45cb-8216-364e79fe7de3" name="Changes" comment="create usecases for category">
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/src/main/java/com/gustavo/admin/catalogo/infrastructure/configuration/WebServerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/src/main/resources/application-development.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="3253efe7-a781-45cb-8216-364e79fe7de3" name="Changes" comment="config docker and application">
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/src/main/resources/application-production.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/src/main/resources/application-test.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/src/main/resources/db/migration/U1_Initial.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/src/main/resources/db/migration/V1__Initial.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/infrastructure/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/src/main/java/com/gustavo/admin/catalogo/infrastructure/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/src/main/java/com/gustavo/admin/catalogo/infrastructure/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/src/main/resources/application-development.yml" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/src/main/resources/application-development.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/src/test/java/com/gustavo/admin/catalogo/infrastructure/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/src/test/java/com/gustavo/admin/catalogo/infrastructure/MainTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +34,12 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="fc3-admin-do-catalogo" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -80,11 +87,15 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$PROJECT_DIR$/../../../../../Program Files/Java/jdk-17.0.3.1/lib/src.zip!/java.base/java/lang/Object.java" root0="SKIP_INSPECTION" />
   </component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -115,6 +126,7 @@
     "Gradle.CreateCategoryUseCaseTest.giveAValidCommand_whenGatewayThrowsRandomException_shouldReturnException.executor": "Run",
     "Gradle.GetCategoryByIdUseCaseTest.executor": "Run",
     "Gradle.ListCategoriesUseCaseTest.executor": "Run",
+    "Gradle.MainTest.testMain.executor": "Run",
     "Gradle.UpdateCategoryUseCaseTest.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -138,30 +150,6 @@
   }
 }]]></component>
   <component name="RunManager" selected="Spring Boot.Main">
-    <configuration name="CreateCategoryUseCaseTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":application:test" />
-            <option value="--tests" />
-            <option value="&quot;com.gustavo.admin.catalogo.application.category.create.CreateCategoryUseCaseTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
     <configuration name="GetCategoryByIdUseCaseTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -210,6 +198,30 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="MainTest.testMain" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":infrastructure:test" />
+            <option value="--tests" />
+            <option value="&quot;com.gustavo.admin.catalogo.infrastructure.MainTest.testMain&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="UpdateCategoryUseCaseTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -248,7 +260,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Gradle.CreateCategoryUseCaseTest" />
+      <item itemvalue="Gradle.MainTest.testMain" />
       <item itemvalue="Gradle.GetCategoryByIdUseCaseTest" />
       <item itemvalue="Gradle.ListCategoriesUseCaseTest" />
       <item itemvalue="Gradle.UpdateCategoryUseCaseTest" />
@@ -257,10 +269,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.Main" />
+        <item itemvalue="Gradle.MainTest.testMain" />
         <item itemvalue="Gradle.GetCategoryByIdUseCaseTest" />
         <item itemvalue="Gradle.ListCategoriesUseCaseTest" />
         <item itemvalue="Gradle.UpdateCategoryUseCaseTest" />
-        <item itemvalue="Gradle.CreateCategoryUseCaseTest" />
       </list>
     </recent_temporary>
   </component>
@@ -280,7 +292,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1719525806754</updated>
-      <workItem from="1720728656171" duration="3206000" />
+      <workItem from="1720728656171" duration="6567000" />
     </task>
     <task id="LOCAL-00001" summary="create basic project">
       <option name="closed" value="true" />
@@ -330,7 +342,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720136342345</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="config docker and application">
+      <option name="closed" value="true" />
+      <created>1720731903577</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1720731903577</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -343,6 +363,7 @@
     <MESSAGE value="create create category usecase" />
     <MESSAGE value="add new cases and tests for create category" />
     <MESSAGE value="create usecases for category" />
-    <option name="LAST_COMMIT_MESSAGE" value="create usecases for category" />
+    <MESSAGE value="config docker and application" />
+    <option name="LAST_COMMIT_MESSAGE" value="config docker and application" />
   </component>
 </project>
